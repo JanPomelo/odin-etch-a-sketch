@@ -16,29 +16,36 @@ function addDivs(dimensions) {
         for (j = 1; j <= dimensions;j++) {
         let div = document.createElement('div');
         container.appendChild(div);
-        div.style.width = String(85.5/dimensions) + 'vw';
-        div.style.height = String(85.5/dimensions) + 'vw';
+        div.style.width = String(100/dimensions) + '%';
+        div.style.height = String(100/dimensions) + '%';
         div.className = 'div';
         div.addEventListener('mouseover',addHovered);
         }
     }
 }
 
+function deleteDivs() {
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+      }
+}
+
 function createPad() {
     let divDimension = Number(prompt('What dimensions do you wish your Drawpad to be?'));
-    if (divDimension > 101 || divDimension < 1) {
+    if (divDimension > 100 || divDimension < 1 || isNaN(divDimension)) {
         divDimension = Number(prompt('Please enter a Number between 1 and 100'));
         addDivs(50);
     } else {
+        deleteDivs();
         addDivs(divDimension);
     }
 }
 
 function addHovered() {
     if (this.className === 'div') {
-        if (mouseDown) {
+       if (mouseDown) {
             this.classList.add('divHovered');
-        }
+       }
     }
 }
 
