@@ -3,17 +3,25 @@
     width: 500px;
     display: flex;
     flex-wrap: wrap;
-    padding: 5%;
+    padding: 10px;
     border: 10px black solid;
     justify-content: center;
     align-items: center;
 }
 html {
     background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 body {
     height: 90%;
     width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .div {
     background-color: white;
