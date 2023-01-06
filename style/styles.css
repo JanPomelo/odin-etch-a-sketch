@@ -8,16 +8,18 @@
     justify-content: center;
     align-items: center;
 }
-
+html {
+    background-color: lightgrey;
+}
 body {
     height: 90%;
     width: 90%;
 }
 .div {
-    background-color: blue;
+    background-color: white;
     flex-grow: 0;
     flex-shrink: 0;
 }
 .divHovered {
-    background-color: yellow;
+    background-color: black;
 }
