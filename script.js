@@ -11,11 +11,13 @@ document.body.onmouseup = function() {
 }
 
 
-function addDivs() {
-    for (let i = 1; i <= 16;i++) {
-        for (j = 1; j <= 16;j++) {
+function addDivs(dimensions) {
+    for (let i = 1; i <= dimensions;i++) {
+        for (j = 1; j <= dimensions;j++) {
         let div = document.createElement('div');
         container.appendChild(div);
+        div.style.width = String(85.5/dimensions) + 'vw';
+        div.style.height = String(85.5/dimensions) + 'vw';
         div.className = 'div';
         div.addEventListener('mouseover',addHovered);
         }
@@ -23,7 +25,13 @@ function addDivs() {
 }
 
 function createPad() {
-    prompt('Would you like to delete your drawings?')
+    let divDimension = Number(prompt('What dimensions do you wish your Drawpad to be?'));
+    if (divDimension > 101 || divDimension < 1) {
+        divDimension = Number(prompt('Please enter a Number between 1 and 100'));
+        addDivs(50);
+    } else {
+        addDivs(divDimension);
+    }
 }
 
 function addHovered() {
@@ -36,4 +44,4 @@ function addHovered() {
 
 
 
-addDivs()
+addDivs(50);
