@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 5%;
     border: 10px black solid;
     justify-content: center;
     align-items: center;
@@ -14,9 +14,8 @@ body {
     width: 90%;
 }
 .div {
-    margin: 10px;
-    height: 17vw;
-    width: 17vw;
+    height: 5.34375vw;
+    width: 5.34375vw;
     background-color: blue;
     flex-grow: 0;
     flex-shrink: 0;
