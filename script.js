@@ -1,4 +1,15 @@
 let container = document.getElementById('container');
+let start = document.getElementById('start');
+start.addEventListener('click',createPad);
+
+let mouseDown = 0;
+document.body.onmousedown = function() { 
+  ++mouseDown;
+}
+document.body.onmouseup = function() {
+  --mouseDown;
+}
+
 
 function addDivs() {
     for (let i = 1; i <= 16;i++) {
@@ -11,11 +22,18 @@ function addDivs() {
     }
 }
 
+function createPad() {
+    prompt('Would you like to delete your drawings?')
+}
+
 function addHovered() {
     if (this.className === 'div') {
-        this.classList.add('divHovered');
+        if (mouseDown) {
+            this.classList.add('divHovered');
+        }
     }
 }
+
 
 
 addDivs()
