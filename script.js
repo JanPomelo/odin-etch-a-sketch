@@ -1,6 +1,20 @@
 let container = document.getElementById('container');
 let start = document.getElementById('start');
 start.addEventListener('click',createPad);
+let black = document.getElementById('black');
+let rainbow = document.getElementById('rainbow');
+let currentColour = 'black';
+
+function randomBetween(min, max) {
+     return min + Math.floor(Math.random() * (max - min + 1));
+}
+
+black.addEventListener('click',function () {
+    currentColour = 'black';
+})
+rainbow.addEventListener('click',function () {
+    currentColour = 'random';
+})
 
 let mouseDown = 0;
 document.body.onmousedown = function() { 
@@ -44,7 +58,14 @@ function createPad() {
 function addHovered() {
     if (this.className === 'div') {
        if (mouseDown) {
-            this.classList.add('divHovered');
+        let newColor = 'black';
+        if (currentColour === 'random') {
+            let r = randomBetween(0,255);
+            let g = randomBetween(0,255);
+            let b = randomBetween(0,255);
+            newColor = `rgb(${r},${g},${b})`;
+        }
+            this.style.backgroundColor = newColor;
        }
     }
 }

@@ -29,9 +29,6 @@ body {
     flex-grow: 0;
     flex-shrink: 0;
 }
-.divHovered {
-    background-color: black;
-}
 
 #heading {
     display: flex;
