@@ -71,17 +71,18 @@ function addHovered() {
                 let r = randomBetween(0,255);
                 let g = randomBetween(0,255);
                 let b = randomBetween(0,255);
-                newColor = `rgba(${r},${g},${b})`;
+                newColor = `rgb(${r},${g},${b})`;
                 this.style.backgroundColor = newColor;
                 this.style.opacity = '1';
             }
             else if (currentColour === 'shader') {
-                if (this.style.backgroundColor !== 'rgb(0,0,0)') {
-                    this.style.backgroundColor = 'rgb(0,0,0)'
+                console.log(this.style.backgroundColor);
+                if (this.style.backgroundColor !== 'rgb(0, 0, 0)') {
+                    this.style.backgroundColor = 'rgb(0, 0, 0)';
                     this.style.opacity = '0.1';
                 } else {
-                    if (Number(this.style.opacity < 1)) {
-                        this.style.opacity = String(Number(this.style.opacity + 0.1));
+                    if (Number(this.style.opacity) < 1) {
+                        this.style.opacity = Number(this.style.opacity) + 0.1;
                     }
                 }
             } else {
