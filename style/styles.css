@@ -28,6 +28,8 @@ body {
     background-color: white;
     flex-grow: 0;
     flex-shrink: 0;
+    border: 0.5px grey solid;
+    box-sizing: border-box;
 }
 
 #heading {
