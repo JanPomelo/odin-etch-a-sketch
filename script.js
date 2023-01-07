@@ -3,6 +3,7 @@ let start = document.getElementById('start');
 start.addEventListener('click',createPad);
 let black = document.getElementById('black');
 let rainbow = document.getElementById('rainbow');
+let eraser = document.getElementById('eraser');
 let currentColour = 'black';
 
 function randomBetween(min, max) {
@@ -14,6 +15,9 @@ black.addEventListener('click',function () {
 })
 rainbow.addEventListener('click',function () {
     currentColour = 'random';
+})
+eraser.addEventListener('click',function () {
+    currentColour = 'white';
 })
 
 let mouseDown = 0;
@@ -58,7 +62,7 @@ function createPad() {
 function addHovered() {
     if (this.className === 'div') {
        if (mouseDown) {
-        let newColor = 'black';
+        let newColor = currentColour;
         if (currentColour === 'random') {
             let r = randomBetween(0,255);
             let g = randomBetween(0,255);
