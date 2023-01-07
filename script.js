@@ -4,6 +4,7 @@ start.addEventListener('click',createPad);
 let black = document.getElementById('black');
 let rainbow = document.getElementById('rainbow');
 let eraser = document.getElementById('eraser');
+let shader = document.getElementById('shader');
 let currentColour = 'black';
 
 function randomBetween(min, max) {
@@ -18,6 +19,9 @@ rainbow.addEventListener('click',function () {
 })
 eraser.addEventListener('click',function () {
     currentColour = 'white';
+})
+shader.addEventListener('click',function () {
+    currentColour = 'shader';
 })
 
 let mouseDown = 0;
@@ -61,19 +65,32 @@ function createPad() {
 
 function addHovered() {
     if (this.className === 'div') {
-       if (mouseDown) {
-        let newColor = currentColour;
-        if (currentColour === 'random') {
-            let r = randomBetween(0,255);
-            let g = randomBetween(0,255);
-            let b = randomBetween(0,255);
-            newColor = `rgb(${r},${g},${b})`;
+        if (mouseDown) {
+            let newColor = currentColour;
+            if (currentColour === 'random') {
+                let r = randomBetween(0,255);
+                let g = randomBetween(0,255);
+                let b = randomBetween(0,255);
+                newColor = `rgba(${r},${g},${b})`;
+                this.style.backgroundColor = newColor;
+                this.style.opacity = '1';
+            }
+            else if (currentColour === 'shader') {
+                if (this.style.backgroundColor !== 'rgb(0,0,0)') {
+                    this.style.backgroundColor = 'rgb(0,0,0)'
+                    this.style.opacity = '0.1';
+                } else {
+                    if (Number(this.style.opacity < 1)) {
+                        this.style.opacity = String(Number(this.style.opacity + 0.1));
+                    }
+                }
+            } else {
+                this.style.backgroundColor = newColor;
+                this.style.opacity = '1';
+            }
         }
-            this.style.backgroundColor = newColor;
-       }
     }
 }
-
 
 
 addDivs(50);
