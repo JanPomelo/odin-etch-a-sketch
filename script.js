@@ -4,6 +4,7 @@ let rainbow = document.getElementById('rainbow');
 let eraser = document.getElementById('eraser');
 let shader = document.getElementById('shader');
 let slider = document.getElementById('slido');
+let clear = document.getElementById('clear');
 let currentColour = 'black';
 
 function randomBetween(min, max) {
@@ -25,6 +26,9 @@ shader.addEventListener('click',function () {
 
 slider.addEventListener('change',function() {
     createPad(slider.value)
+})
+clear.addEventListener('click',function() {
+    createPad(slider.value);
 })
 
 let mouseDown = 0;
