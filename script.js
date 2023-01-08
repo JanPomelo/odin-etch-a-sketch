@@ -1,10 +1,9 @@
 let container = document.getElementById('container');
-let start = document.getElementById('start');
-start.addEventListener('click',createPad);
 let black = document.getElementById('black');
 let rainbow = document.getElementById('rainbow');
 let eraser = document.getElementById('eraser');
 let shader = document.getElementById('shader');
+let slider = document.getElementById('slido');
 let currentColour = 'black';
 
 function randomBetween(min, max) {
@@ -22,6 +21,10 @@ eraser.addEventListener('click',function () {
 })
 shader.addEventListener('click',function () {
     currentColour = 'shader';
+})
+
+slider.addEventListener('change',function() {
+    createPad(slider.value)
 })
 
 let mouseDown = 0;
@@ -52,15 +55,9 @@ function deleteDivs() {
       }
 }
 
-function createPad() {
-    let divDimension = Number(prompt('What dimensions do you wish your Drawpad to be?'));
-    if (divDimension > 100 || divDimension < 1 || isNaN(divDimension)) {
-        divDimension = Number(prompt('Please enter a Number between 1 and 100'));
-        addDivs(50);
-    } else {
+function createPad(dimensions) {
         deleteDivs();
-        addDivs(divDimension);
-    }
+        addDivs(dimensions);
 }
 
 function addHovered() {
@@ -92,6 +89,7 @@ function addHovered() {
         }
     }
 }
+
 
 
 addDivs(50);
