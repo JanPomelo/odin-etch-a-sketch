@@ -45,3 +45,30 @@ body {
     flex-direction: row;
     align-items: center;
 }
+input[type='range'] {
+    -webkit-appearance: none;
+    height: 2px;
+    width: 100px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: black;
+    border-radius: 50%;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+  p {
+    width: 100px;
+    text-align: center;
+  }
+
+
