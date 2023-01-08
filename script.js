@@ -32,6 +32,7 @@ clear.addEventListener('click',function() {
 })
 
 let mouseDown = 0;
+
 document.body.onmousedown = function() { 
   ++mouseDown;
 }
@@ -49,6 +50,7 @@ function addDivs(dimensions) {
         div.style.height = String(100/dimensions) + '%';
         div.className = 'div';
         div.addEventListener('mouseover',addHovered);
+        div.addEventListener('click',addHovered);
         }
     }
 }
@@ -77,7 +79,6 @@ function addHovered() {
                 this.style.opacity = '1';
             }
             else if (currentColour === 'shader') {
-                console.log(this.style.backgroundColor);
                 if (this.style.backgroundColor !== 'rgb(0, 0, 0)') {
                     this.style.backgroundColor = 'rgb(0, 0, 0)';
                     this.style.opacity = '0.1';
@@ -90,7 +91,7 @@ function addHovered() {
                 this.style.backgroundColor = newColor;
                 this.style.opacity = '1';
             }
-        }
+        } 
     }
 }
 
