@@ -6,6 +6,7 @@ let shader = document.getElementById('shader');
 let slider = document.getElementById('slido');
 let clear = document.getElementById('clear');
 let currentColour = 'black';
+black.disabled = 'true';
 
 function randomBetween(min, max) {
      return min + Math.floor(Math.random() * (max - min + 1));
@@ -13,15 +14,31 @@ function randomBetween(min, max) {
 
 black.addEventListener('click',function () {
     currentColour = 'black';
+    black.disabled = true;
+    rainbow.disabled = false;
+    eraser.disabled = false;
+    shader.disabled = false;
 })
 rainbow.addEventListener('click',function () {
     currentColour = 'random';
+    black.disabled = false;
+    rainbow.disabled = true;
+    eraser.disabled = false;
+    shader.disabled = false;
 })
 eraser.addEventListener('click',function () {
     currentColour = 'white';
+    black.disabled = false;
+    rainbow.disabled = false;
+    eraser.disabled = true;
+    shader.disabled = false;
 })
 shader.addEventListener('click',function () {
     currentColour = 'shader';
+    black.disabled = false;
+    rainbow.disabled = false;
+    eraser.disabled = false;
+    shader.disabled = true;
 })
 
 slider.addEventListener('change',function() {
